@@ -68,7 +68,7 @@ export default function AppNavbar() {
                 {session ? (
                   <Dropdown>
                     <DropdownTrigger>
-                      <button className="rounded-full ring-2 ring-emerald-500 ring-offset-2 ring-offset-white dark:ring-offset-zinc-900 focus:outline-none">
+                      <div className="cursor-pointer rounded-full ring-2 ring-emerald-500 ring-offset-2 ring-offset-white dark:ring-offset-zinc-900">
                         <AvatarRoot className="h-9 w-9">
                           <AvatarImage
                             src={session.user.image || ""}
@@ -78,7 +78,7 @@ export default function AppNavbar() {
                             {session.user.name?.charAt(0).toUpperCase()}
                           </AvatarFallback>
                         </AvatarRoot>
-                      </button>
+                      </div>
                     </DropdownTrigger>
                     <DropdownMenu aria-label="User menu">
                       <DropdownItem key="info" isReadOnly className="opacity-70">
@@ -110,13 +110,11 @@ export default function AppNavbar() {
                     </DropdownMenu>
                   </Dropdown>
                 ) : (
-                  <Button
-                    as={Link}
-                    href="/login"
-                    className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 rounded-lg"
-                  >
-                    Login
-                  </Button>
+                  <Link href="/login">
+                    <Button className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 rounded-lg">
+                      Login
+                    </Button>
+                  </Link>
                 )}
               </>
             )}
