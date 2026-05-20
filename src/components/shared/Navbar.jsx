@@ -18,6 +18,8 @@ import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { GiSoccerBall } from "react-icons/gi";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
+import { LuSun, LuMoon } from "react-icons/lu";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -28,6 +30,7 @@ export default function AppNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const { data: session, isPending } = authClient.useSession();
+  const { theme, setTheme } = useTheme();
 
   const handleLogout = async () => {
     await authClient.signOut();
@@ -63,6 +66,14 @@ export default function AppNavbar() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-lg text-zinc-500 hover:text-emerald-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <LuSun className="text-lg" /> : <LuMoon className="text-lg" />}
+            </button>
+
             {!isPending && (
               <>
                 {session ? (
