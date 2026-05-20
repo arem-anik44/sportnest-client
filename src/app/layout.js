@@ -1,6 +1,7 @@
 import { Rajdhani } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import AppNavbar from "@/components/shared/Navbar";
 
 const rajdhani = Rajdhani({
   subsets: ["latin"],
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${rajdhani.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <AppNavbar />
         {children}
         <Toaster position="top-right" />
       </body>
