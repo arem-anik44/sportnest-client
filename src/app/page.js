@@ -1,6 +1,7 @@
 import Banner from "@/components/home/Banner";
 import FeaturedFacilities from "@/components/home/FeaturedFacilities";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import HowItWorks from "@/components/home/HowItWorks";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Banner />
       <FeaturedFacilities />
       <WhyChooseUs />
+      <HowItWorks />
     </main>
   );
 }
