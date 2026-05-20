@@ -7,11 +7,19 @@ import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { GiSoccerBall } from "react-icons/gi";
 import { LuEye, LuEyeOff, LuMail, LuLock, LuUser } from "react-icons/lu";
+import { FcGoogle } from "react-icons/fc";
 
 export default function SignupPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
+
+  const handleGoogleSignup = async () => {
+    setGoogleLoading(true);
+    await authClient.signIn.social({ provider: "google", callbackURL: "/" });
+    setGoogleLoading(false);
+  };
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -109,6 +117,22 @@ export default function SignupPage() {
               {loading ? "Creating account..." : "Create Account"}
             </button>
           </form>
+
+          <div className="mt-5 flex items-center gap-3">
+            <div className="flex-1 h-px bg-zinc-200 dark:bg-zinc-700" />
+            <span className="text-xs text-zinc-400">or</span>
+            <div className="flex-1 h-px bg-zinc-200 dark:bg-zinc-700" />
+          </div>
+
+          <button
+            type="button"
+            onClick={handleGoogleSignup}
+            disabled={googleLoading}
+            className="mt-4 w-full flex items-center justify-center gap-3 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800 disabled:opacity-60 disabled:cursor-not-allowed text-zinc-700 dark:text-zinc-200 font-semibold text-sm transition-colors"
+          >
+            <FcGoogle className="text-xl" />
+            {googleLoading ? "Redirecting..." : "Continue with Google"}
+          </button>
 
           <p className="mt-6 text-center text-sm text-zinc-500 dark:text-zinc-400">
             Already have an account?{" "}
