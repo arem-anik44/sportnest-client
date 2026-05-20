@@ -3,6 +3,7 @@ import Link from "next/link";
 import { LuMapPin, LuClock, LuArrowLeft } from "react-icons/lu";
 import { GiSoccerBall, GiShuttlecock, GiTennisBall } from "react-icons/gi";
 import { MdPool, MdSportsBasketball } from "react-icons/md";
+import BookingForm from "@/components/facility/BookingForm";
 
 const typeIcons = {
   football: GiSoccerBall,
@@ -102,12 +103,10 @@ export default async function FacilityDetailsPage({ params }) {
             )}
 
             <div className="border-t border-zinc-100 dark:border-zinc-800 pt-6">
-              <h2 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+              <h2 className="text-lg font-semibold text-zinc-900 dark:text-white mb-6">
                 Book this Facility
               </h2>
-              <p className="text-sm text-zinc-400">
-                Booking form coming soon in the next update.
-              </p>
+              <BookingForm facility={facility} />
             </div>
           </div>
         </div>
