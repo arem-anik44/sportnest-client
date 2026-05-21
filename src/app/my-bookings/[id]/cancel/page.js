@@ -6,7 +6,7 @@ import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import Link from "next/link";
-import { LuArrowLeft, LuCalendar, LuClock, LuXCircle } from "react-icons/lu";
+import { LuArrowLeft, LuCalendar, LuClock, LuCircleX } from "react-icons/lu";
 
 export default function CancelBookingPage() {
   const router = useRouter();
@@ -101,7 +101,7 @@ export default function CancelBookingPage() {
 
           <div className="p-6 sm:p-8">
             <div className="flex items-center justify-center h-14 w-14 rounded-full bg-red-100 dark:bg-red-500/10 mx-auto mb-4">
-              <LuXCircle className="text-2xl text-red-500" />
+              <LuCircleX className="text-2xl text-red-500" />
             </div>
 
             <h1 className="text-xl font-bold text-zinc-900 dark:text-white text-center mb-2">
