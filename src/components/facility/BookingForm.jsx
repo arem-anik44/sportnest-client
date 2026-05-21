@@ -35,6 +35,7 @@ export default function BookingForm({ facility }) {
       end_time,
       total_price,
       user_name: session.user.name,
+      status: "pending",
     };
 
     setLoading(true);

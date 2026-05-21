@@ -70,21 +70,19 @@ export default function Banner() {
           transition={{ duration: 0.6, delay: 0.45 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button
-            as={Link}
-            href="/facilities"
-            className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-emerald-500/25"
-          >
-            Browse Facilities
-          </Button>
-          <Button
-            as={Link}
-            href="/signup"
-            variant="bordered"
-            className="border-zinc-600 text-zinc-300 hover:border-emerald-500 hover:text-emerald-400 font-semibold px-8 py-6 text-base rounded-xl"
-          >
-            Get Started Free
-          </Button>
+          <Link href="/facilities">
+            <Button className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-emerald-500/25">
+              Browse Facilities
+            </Button>
+          </Link>
+          <Link href="/signup">
+            <Button
+              variant="bordered"
+              className="border-zinc-600 text-zinc-300 hover:border-emerald-500 hover:text-emerald-400 font-semibold px-8 py-6 text-base rounded-xl"
+            >
+              Get Started Free
+            </Button>
+          </Link>
         </motion.div>
 
         <motion.div
@@ -101,7 +99,7 @@ export default function Banner() {
           ].map(({ icon: Icon, label }) => (
             <Link
               key={label}
-              href={`/facilities?types=${label.toLowerCase()}`}
+              href="/facilities"
               className="flex flex-col items-center gap-2 bg-white/5 hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/40 rounded-xl p-4 transition-all group"
             >
               <Icon className="text-3xl text-zinc-400 group-hover:text-emerald-400 transition-colors" />

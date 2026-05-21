@@ -6,7 +6,6 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Avatar,
   AvatarFallback,
   AvatarImage,
   AvatarRoot,
